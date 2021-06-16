@@ -5,6 +5,7 @@ import (
 	"github.com/gin-gonic/gin"
 	"gogogo/config"
 	"gogogo/middlewares"
+	"gogogo/router"
 	"gogogo/share"
 	"gogogo/util"
 )
@@ -20,6 +21,7 @@ func startDb() {
 func startServer() {
 	r := gin.Default()
 	r.Use(middlewares.Cors)
+	router.DemoRoute(r)
 	r.Run(fmt.Sprintf("%s:%s", config.SERVER_HOST, config.SERVER_PORT))
 }
 
